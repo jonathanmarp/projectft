@@ -1,52 +1,30 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
-import { MainNav } from "@/components/main-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav items={siteConfig.mainNav} />
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "sm",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.gitHub className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </Link>
-            <Link
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "sm",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.twitter className="h-5 w-5 fill-current" />
-                <span className="sr-only">Twitter</span>
-              </div>
-            </Link>
-            <ThemeToggle />
-          </nav>
-        </div>
+    <header className="w-full p-7 px-14 flex justify-between">
+      <div>
+        <h1 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          <span className="font-extrabold">Project</span> FT
+        </h1>
       </div>
+
+      <menu className="flex items-center space-x-1 gap-6">
+        <div className="text-lg font-semibold border-b-2">
+          <Link href="/">Home</Link>
+        </div>
+        <div className="text-lg font-semibold">
+          <Link href="/">About</Link>
+        </div>
+        <div className="text-lg font-semibold">
+          <Link href="/">Contact</Link>
+        </div>
+        <Button className="text-lg font-semibold">
+          <Link href="/">Achivement</Link>
+        </Button>
+      </menu>
     </header>
   )
 }
